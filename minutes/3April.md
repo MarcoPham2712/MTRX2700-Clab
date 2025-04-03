@@ -1,11 +1,11 @@
 The first meeting is the week 6 lab
-Attendance: 
+**Participants:** 
     - Marco
     - Oscar
-Absent:
+**Absent**
     - Zhenyu Dai (Due to fever)
 
-Work done:
+**Agenda:**
     - Meet up with team member
     - Create a new repository on Github
     - Divide the assignment into 3 exercises and assign for each member
