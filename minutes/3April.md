@@ -42,7 +42,7 @@ Minute Taker: Marco
 ### **Exercise 2: Serial interface**
 | Task (2.3.2)                                | Status | Owner     | Notes                                                             |
 |--------------------------------------------|--------|-----------|-------------------------------------------------------------------|
-| a) UART reading in function                | ❌     | Oscar  |  |
+| a) UART reading in function                | ✅     | Oscar  | Function completed to receive message and then retransmit to show functionality |
 | b) UART Receiving function                 | ❌     | Oscar  |  |
 | c) Applied with Interrupt                  | ❌     | Oscar  |  |
 | d) Advanced function                       | ❌     | Oscar  |  |
