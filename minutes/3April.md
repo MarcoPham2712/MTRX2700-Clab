@@ -49,7 +49,7 @@ Minute Taker: Marco
 
 
 ### **Exercise 3: Timer Interface**
-| Task (2.3.2)                                | Status | Owner     | Notes                                                             |
+| Task (2.4.2)                                | Status | Owner     | Notes                                                             |
 |--------------------------------------------|--------|-----------|-------------------------------------------------------------------|
 | a) Timer triggering the callback function  | ❌     | Zhenyu  |      |
 | b) Reset the timer                         | ❌     | Zhenyu  |      |
@@ -63,7 +63,7 @@ Minute Taker: Marco
 | Folder     | New Files Added                                      | Description                                    |
 |------------|------------------------------------------------------|------------------------------------------------|
 | `Exercise 1` | `parta.c`                                            | Digital I/O interface                          |
-| `Exercise 2` | `parta.c`                                            | Serial interface                               |
+| `Exercise 2` | `serial.c`, 'Task_a.c'                                            | Serial interface                               |
 | `Exercise 3` | `parta.c`                                            | Timer Interface                                |
 | `Integration` | `main.c`                                            | Putting it all together                        |
 | `minutes/`   | `minutes_13_3.txt`                                   | This meeting minutes file                      |
