@@ -34,18 +34,6 @@ SerialPort USART1_PORT = {USART1,
 		0x00 // default function pointer is NULL
 		};
 
-SerialPort USART2_PORT = {USART2,                 // UART peripheral
-		GPIOA,                  // GPIO port for PA2 and PA3
-		0x00,                   // APB2 enable bit (USART2 is on APB1, so this stays 0)
-		RCC_APB1ENR_USART2EN,   // APB1 enable bit for USART2
-		RCC_AHBENR_GPIOAEN,     // AHB enable bit for GPIOA
-		0xA0,                   // MODER value to set PA2/PA3 to alternate function
-		0xF0,                   // OSPEEDR value to set PA2/PA3 to high speed
-		0x7700,                 // AFR[0] value for PA2/PA3
-		0x00,                   // AFR[1] not used
-		0x00                    // No completion function initially
-		};
-
 
 // InitialiseSerial - Initialise the serial port
 // Input: baudRate is from an enumerated set
@@ -134,11 +122,12 @@ void SerialInputUntil(uint8_t *buffer, uint32_t max_length, char terminator, Ser
 	uint32_t counter = 0;
 
 	while (counter < (max_length - 1)) {
-		// Wait until RXNE (Receive Data Register Not Empty)
+
+		// Wait until ready to receive
 		while ((serial_port->UART->ISR & USART_ISR_RXNE) == 0) {
 		}
 
-		// Read a byte from the UART
+		// Read a character from UART
 		uint8_t data = serial_port->UART->RDR;
 
 		// Stop if the terminator is reached
@@ -146,15 +135,12 @@ void SerialInputUntil(uint8_t *buffer, uint32_t max_length, char terminator, Ser
 			break;
 		}
 
-		// Store the byte in the buffer
+		// Store the character into a buffer
 		buffer[counter++] = data;
 	}
 
-	// Null-terminate the string
-	buffer[counter] = '\0';
+	// Adding null terminator,carriage return and new line
+	buffer[counter] = '\0\r\n';
 
-	// Notify using the completion callback
-	if (serial_port->completion_function != 0x00) {
-		serial_port->completion_function(counter);
-	}
-}
+	// Callback function
+	serial_port->completion_function(counter);
