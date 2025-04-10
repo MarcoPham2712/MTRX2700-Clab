@@ -9,65 +9,69 @@
 #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
-
-#define MAX_LEN 100
-
-uint8_t rx_buffer[2][MAX_LEN];   // double buffer for reception
-uint8_t active_rx = 0;           // 0 or 1
-uint8_t rx_index = 0;            // current position in active buffer
-char terminator = '\r';
-
-uint8_t tx_buffer[MAX_LEN];      // buffer for transmission
-uint8_t tx_index = 0;
-uint8_t tx_length = 0;
-uint8_t tx_sending = 0;
+#define MESSAGE_LENGTH 100
 
 
-void finished_transmission(uint8_t *rx_string, uint32_t bytes_sent) {
-    rx_string[bytes_sent] = '\0';
+uint8_t kernel_buffer[2][MESSAGE_LENGTH];  	   // Double buffer for receiving
+uint8_t active_kernel = 0;                     // Tracking current kernel buffer
+uint8_t kernel_index = 0;                      // Current position in active kernel buffer
+char message_terminator = '!';				   // Adjustable terminating character
 
-    // Copy received string to tx_buffer for transmission
-    for (uint32_t i = 0; i <= bytes_sent; i++) {
-        tx_buffer[i] = rx_string[i];
+// Transmission buffer
+uint8_t transmit_buffer[MESSAGE_LENGTH];
+uint8_t transmit_index = 0;
+uint8_t transmit_length = 0;
+uint8_t is_transmitting = 0;
+
+
+void finished_transmission(uint8_t *user_buffer, uint32_t message_length) {
+
+	// Null terminate
+    user_buffer[message_length] = '\0';
+
+    // Copy the completed message into the transmission buffer
+    for (uint32_t i = 0; i <= message_length; i++) {
+        transmit_buffer[i] = user_buffer[i];
     }
 
-    tx_length = bytes_sent;
-    tx_index = 0;
-    tx_sending = 1;
+    transmit_length = message_length;	// Set length of transmission
+    transmit_index = 0;					// Begin at the start
+    is_transmitting = 1;				// Set to transmission mode
 
-    USART1->CR1 |= USART_CR1_TXEIE;  // Enable TXE interrupt
+    USART1->CR1 |= USART_CR1_TXEIE;  // Enable transmit interrupt
 }
 
 
 void USART1_EXTI25_IRQHandler(void)
 {
-    // RX handler
+    // Receive interrupt
     if (USART1->ISR & USART_ISR_RXNE) {
-        uint8_t data = USART1->RDR;
+        uint8_t incoming_byte = USART1->RDR;
 
-        if (rx_index < MAX_LEN - 1) {
-            rx_buffer[active_rx][rx_index++] = data;
+        // Only store if there is room in buffer
+        if (kernel_index < MESSAGE_LENGTH - 1) {
+            kernel_buffer[active_kernel][kernel_index++] = incoming_byte;
 
-            if (data == terminator) {
-                // Message complete – call callback
-                finished_transmission(rx_buffer[active_rx], rx_index);
+            if (incoming_byte == message_terminator) {
+                // Message complete so go to callback
+                finished_transmission(kernel_buffer[active_kernel], kernel_index);
 
                 // Switch buffers and reset index
-                active_rx ^= 1;
-                rx_index = 0;
+                active_kernel ^= 1;
+                kernel_index = 0;
             }
         } else {
-            rx_index = 0;  // overflow protection
+            kernel_index = 0;  // Reset index if no room
         }
     }
 
-    // TX handler
-    if ((USART1->ISR & USART_ISR_TXE) && tx_sending) {
-        if (tx_index < tx_length) {
-            USART1->TDR = tx_buffer[tx_index++];
+    // Transmit interrupt
+    if ((USART1->ISR & USART_ISR_TXE) && is_transmitting) {	// Check if transmit is ready and in transmit mode
+        if (transmit_index < transmit_length) {
+            USART1->TDR = transmit_buffer[transmit_index++];	// Transmit until end of string
         } else {
-            USART1->CR1 &= ~USART_CR1_TXEIE;  // disable TXE interrupt
-            tx_sending = 0;
+            USART1->CR1 &= ~USART_CR1_TXEIE;  // Disable TXE interrupt
+            is_transmitting = 0;			  // Leave transmit mode
         }
     }
 }
@@ -77,7 +81,7 @@ void enable_interrupt() {
     __disable_irq();
 
     USART1->CR1 |= USART_CR1_RXNEIE;     // Enable RXNE interrupt
-    NVIC_SetPriority(USART1_IRQn, 1);
+    NVIC_SetPriority(USART1_IRQn, 1);	 // Set priority
     NVIC_EnableIRQ(USART1_IRQn);
 
     __enable_irq();
@@ -86,8 +90,8 @@ void enable_interrupt() {
 
 int main(void)
 {
-    SerialInitialise(BAUD_115200, &USART1_PORT, 0x00);  // callback handled manually
-    enable_interrupt();
+    SerialInitialise(BAUD_115200, &USART1_PORT, 0x00);  // Initialise USART1
+    enable_interrupt();									// Enable interrupts
 
-   for(;;);
+   for(;;);												// Loop forever
 }
