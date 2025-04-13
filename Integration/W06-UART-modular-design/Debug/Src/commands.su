@@ -1,0 +1,5 @@
+../Src/commands.c:13:6:finished_transmission	24	static
+../Src/commands.c:32:6:led_command	24	static
+../Src/commands.c:39:6:serial_command	16	static
+../Src/commands.c:50:6:oneshot_command	24	static
+../Src/commands.c:63:6:timer_command	24	static
