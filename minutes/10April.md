@@ -42,8 +42,8 @@ Minute Taker: Marco
 | Task (2.3.2)                                | Status | Owner     | Notes                                                             |
 |--------------------------------------------|--------|-----------|-------------------------------------------------------------------|
 | a) UART reading in function                | ✅     | Oscar  | Function completed to receive message and then retransmit to show functionality |
-| b) UART Receiving function                 | ✅     | Oscar  |  |
-| c) Applied with Interrupt                  | ✅     | Oscar  |  |
+| b) UART Receiving function                 | ✅     | Oscar  | Function can receive the string and call a callback function to retransmit |
+| c) Applied with Interrupt                  | ✅     | Oscar  | Module uses interrupts instead of polling to receive |
 | d) Advanced function                       | ❌     | Oscar  |  |
 
 
