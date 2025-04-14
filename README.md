@@ -23,7 +23,7 @@ This project demonstrates modular embedded system development in **C** on the **
 Key focus areas:
 - Modular `.c`/`.h` separation
 - Callback functions via function pointers
-- Interrupt-based UART communication
+- Interrupt-based UART communication and timers
 - Timer-based delay and one-shot tasks
 - Final integration through command parsing
 
@@ -62,10 +62,10 @@ A user sends commands over **serial**, and the board executes the appropriate ac
 ## Instructions for Use
 
 ### Requirements:
-- STM32CubeIDE (v1.12+)
+- STM32CubeIDE
 - STM32F3 Discovery Board
 - Micro-USB cable
-- Serial terminal (e.g., Tera Term / PuTTY)
+- Serial terminal (e.g., Cutecom/ PuTTY)
 
 ### Steps:
 1. Clone the group repository
