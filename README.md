@@ -3,8 +3,8 @@
 ## Group Information
 
 **Team Number:** Group 6 
-**Unit:** MTRX2700 – Mechatronics 2  
 **Semester:** S1 2025  
+**Unit:** MTRX2700 – Mechatronics 2  
 
 ### Group Members & Roles
 
