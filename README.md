@@ -1,8 +1,8 @@
-# MTRX2700 C Lab Project – Group G2
+# MTRX2700 C Lab Project – Group 6
 
 ## Group Information
 
-**Team Number:** S4-G2  
+**Team Number:** Group 6 
 **Unit:** MTRX2700 – Mechatronics 2  
 **Semester:** S1 2025  
 
