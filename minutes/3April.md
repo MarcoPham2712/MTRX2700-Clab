@@ -66,7 +66,7 @@ Minute Taker: Marco
 | `Exercise 2` | `serial.c`, `Task_a.c`                                            | Serial interface                               |
 | `Exercise 3` | `parta.c`                                            | Timer Interface                                |
 | `Integration` | `main.c`                                            | Putting it all together                        |
-| `minutes/`   | `minutes_13_3.txt`                                   | This meeting minutes file                      |
+| `minutes/`   | `3April.md`                                   | This meeting minutes file                      |
 
 ---
 
