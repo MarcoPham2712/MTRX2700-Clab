@@ -1,7 +1,0 @@
-"./Src/chase_led.o"
-"./Src/initialise.o"
-"./Src/interrupt.o"
-"./Src/main.o"
-"./Src/syscalls.o"
-"./Src/sysmem.o"
-"./Startup/startup_stm32f303vctx.o"
