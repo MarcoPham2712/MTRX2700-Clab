@@ -60,8 +60,8 @@ Minute Taker: Marco
 
 | Folder     | New Files Added                                      | Description                                    |
 |------------|------------------------------------------------------|------------------------------------------------|
-| `Exercise 1` | `Digital_IO_2a`,`Digital_IO_2b`,`Digital_IO_2c`,`Digital_IO_2d`                                            | Digital I/O interface                          |
-| `Exercise 2` |                                            | Serial interface                               |
+| `Exercise 1` | `Digital_IO_2d`                                            | Digital I/O interface                          |
+| `Exercise 2` |  `task_d.c`                                           | Serial interface                               |
 | `Exercise 3` |                                            | Timer Interface                                |
 | `Integration` | `main.c`                                            | Putting it all together                        |
 | `minutes/`   | `minutes_15_4.txt`                                   | This meeting minutes file                      |
