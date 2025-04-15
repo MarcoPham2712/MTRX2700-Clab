@@ -5,7 +5,7 @@
 uint8_t kernel_buffer[2][MESSAGE_LENGTH];
 uint8_t active_kernel = 0;
 uint8_t kernel_index = 0;
-char message_terminator = '\r';
+char message_terminator = '!';
 
 uint8_t transmit_buffer[MESSAGE_LENGTH];
 uint8_t transmit_index = 0;
@@ -44,7 +44,6 @@ void USART1_EXTI25_IRQHandler(void) {
 
 void enable_timers(uint32_t delay_us) {
     __disable_irq();
-
     // 1. Enable clock for TIM2
     RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
 
@@ -55,7 +54,7 @@ void enable_timers(uint32_t delay_us) {
     TIM2->CNT = 0;
 
     // 3. Set prescaler and ARR
-    TIM2->PSC = 8 - 1;         // 1 µs tick
+    TIM2->PSC = 7999;         // 1 µs tick
     TIM2->ARR = delay_us;
 
     // 4. Force update event to preload ARR & PSC into shadow registers

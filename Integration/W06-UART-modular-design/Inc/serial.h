@@ -36,16 +36,6 @@ void SerialOutputString(uint8_t *pt, SerialPort *serial_port);
 // SerialInputUntil - blocking input until a terminating character
 void SerialInputUntil(uint8_t *buffer, uint32_t max_length, char terminator, SerialPort *serial_port);
 
-// Enable RXNE interrupt for serial reception
-void enable_interrupt(void);
-
-// Double-buffered input (non-blocking, ISR-friendly)
-void SerialInputStringdb(uint8_t buffer[][32], SerialPort *serial_port);
-
-// Logic to parse and echo stored buffer content
-void InputLogic(uint8_t buffer[][32]);
-
-// Function pointers for interrupt handlers (defined in main)
 void enable_clocks();
 // initialise the discovery board I/O (just outputs: inputs are selected by default)
 void initialise_board();

@@ -21,7 +21,6 @@ void TIM2_IRQHandler(void)
 
 void led_chase_direction(char direction)
 {
-	TIM2->CNT = 0;
 	switch (direction) {
 		case 'c':
 			on_button_press = &chase_led_c;
@@ -45,6 +44,10 @@ void chase_led_c()
 void chase_led_a()
 {
 	uint8_t *led_register = ((uint8_t*)&(GPIOE->ODR)) + 1;
-
+	if (*led_register != 0){
 	*led_register =0;
+}
+	else{
+		*led_register =0xFF;
+	}
 }
