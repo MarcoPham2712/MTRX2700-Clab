@@ -1,0 +1,6 @@
+../Inc/core_cm4.h:1688:22:__NVIC_EnableIRQ	2
+../Src/timer.c:11:6:TIM2_IRQHandler	2
+../Src/timer.c:18:6:set_prescaler	1
+../Src/timer.c:43:6:timer	1
+../Src/timer.c:68:6:one_shot	1
+../Src/timer.c:97:6:dis_enable_timer_interrupt	1

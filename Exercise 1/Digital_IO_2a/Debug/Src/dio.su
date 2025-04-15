@@ -1,0 +1,8 @@
+../Inc/core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
+../Inc/core_cm4.h:1816:22:__NVIC_SetPriority	16	static
+../Src/dio.c:7:6:DIO_EnableClocks	4	static
+../Src/dio.c:13:6:DIO_InitialiseBoard	16	static
+../Src/dio.c:23:6:DIO_EnableInterrupt	8	static,ignoring_inline_asm
+../Src/dio.c:40:6:DIO_Init	8	static
+../Src/dio.c:46:6:DIO_ButtonInterruptHandler	8	static
+../Src/dio.c:51:6:DIO_UpdateLEDs	4	static

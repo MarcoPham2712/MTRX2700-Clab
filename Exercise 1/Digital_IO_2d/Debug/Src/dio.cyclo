@@ -1,0 +1,10 @@
+../Inc/core_cm4.h:1688:22:__NVIC_EnableIRQ	2
+../Inc/core_cm4.h:1816:22:__NVIC_SetPriority	2
+../Src/dio.c:13:6:DIO_EnableClocks	1
+../Src/dio.c:19:6:DIO_InitialiseBoard	1
+../Src/dio.c:29:6:DIO_EnableInterrupt	1
+../Src/dio.c:46:6:DIO_Init	1
+../Src/dio.c:53:6:DIO_ButtonInterruptHandler	3
+../Src/dio.c:70:6:DIO_UpdateLEDs	7
+../Src/dio.c:95:6:DIO_SetBitmaskFromString	4
+../Src/dio.c:107:9:DIO_GetBitmask	1
