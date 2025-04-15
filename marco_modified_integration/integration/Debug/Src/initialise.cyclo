@@ -1,0 +1,7 @@
+../Inc/core_cm4.h:1688:22:__NVIC_EnableIRQ	2
+../Inc/core_cm4.h:1816:22:__NVIC_SetPriority	2
+../Src/initialise.c:6:6:enable_clocks	1
+../Src/initialise.c:10:6:initialise_board	1
+../Src/initialise.c:16:6:enable_interrupt	1
+../Src/initialise.c:34:6:enable_timers	1
+../Src/initialise.c:70:6:SerialInitialise	6
