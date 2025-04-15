@@ -1,6 +1,7 @@
 #include "chase_led.h"
 #include <stdint.h>
 #include "stm32f303xc.h"
+#include "interrupt.h"
 
 // store a pointer to the function that is called when a button is pressed
 // set a default value of NULL so that it won't be called until the
@@ -55,4 +56,13 @@ void chase_led_a()
 	if (*led_register == 0) {
 		*led_register = 1;// If shift causes all lights off, turn last LED on
 	}
+}
+
+void delay_set(int delay) {
+	enable_interrupt();
+
+	TIM2->ARR = delay; // 0.4 second before reset
+
+	// Re-enable all interrupts (now that we are finished)
+	__enable_irq();
 }

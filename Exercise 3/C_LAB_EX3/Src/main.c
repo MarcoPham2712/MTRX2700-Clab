@@ -34,19 +34,14 @@ int main(void)
 	initialise_board();
 
 	// choose whether the chase led function is clockwise (c) or anticlockwise (a)
-
 	char direction = 'c';
+	int delay = 400000;// 0.4 second before reset
 
-	// set the interrupt handling function
-
+	// set the led chase direction
 	led_chase_direction(direction);
 
-	enable_interrupt();
-
-	TIM2->ARR = 400000; // 0.4 second before reset
-
-	// Re-enable all interrupts (now that we are finished)
-	__enable_irq();
+	//set the delay time interface with timer
+	delay_set(delay);
 
     /* Loop forever */
 	for(;;);

@@ -33,34 +33,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := week6-modular-design
+BUILD_ARTIFACT_NAME := Integration
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-week6-modular-design.elf \
+Integration.elf \
 
 MAP_FILES += \
-week6-modular-design.map \
+Integration.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-week6-modular-design.list \
+Integration.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: week6-modular-design.elf secondary-outputs
+main-build: Integration.elf secondary-outputs
 
 # Tool invocations
-week6-modular-design.elf week6-modular-design.map: $(OBJS) $(USER_OBJS) /Users/oscareverett/Documents/GitHub/MTRX2700-2025/W06-UART-modular-design/STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "week6-modular-design.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/oscareverett/Documents/GitHub/MTRX2700-2025/W06-UART-modular-design/STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="week6-modular-design.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Integration.elf Integration.map: $(OBJS) $(USER_OBJS) /Users/oscareverett/Documents/GitHub/MTRX2700-2025/W06-UART-modular-design/STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Integration.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/oscareverett/Documents/GitHub/MTRX2700-2025/W06-UART-modular-design/STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Integration.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,14 +69,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-week6-modular-design.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "week6-modular-design.list"
+Integration.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Integration.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout week6-modular-design.elf week6-modular-design.list week6-modular-design.map
+	-$(RM) Integration.elf Integration.list Integration.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

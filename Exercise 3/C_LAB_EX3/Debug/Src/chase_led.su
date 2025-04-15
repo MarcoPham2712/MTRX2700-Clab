@@ -1,4 +1,5 @@
-../Src/chase_led.c:10:6:TIM2_IRQHandler	8	static
-../Src/chase_led.c:28:6:led_chase_direction	16	static
-../Src/chase_led.c:40:6:chase_led_c	16	static
-../Src/chase_led.c:50:6:chase_led_a	16	static
+../Src/chase_led.c:11:6:TIM2_IRQHandler	8	static
+../Src/chase_led.c:29:6:led_chase_direction	16	static
+../Src/chase_led.c:41:6:chase_led_c	16	static
+../Src/chase_led.c:51:6:chase_led_a	16	static
+../Src/chase_led.c:61:6:delay_set	16	static,ignoring_inline_asm
