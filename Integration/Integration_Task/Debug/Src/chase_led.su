@@ -1,4 +1,0 @@
-../Src/chase_led.c:10:6:TIM2_IRQHandler	8	static
-../Src/chase_led.c:22:6:led_chase_direction	16	static
-../Src/chase_led.c:34:6:chase_led_c	16	static
-../Src/chase_led.c:44:6:chase_led_a	16	static
