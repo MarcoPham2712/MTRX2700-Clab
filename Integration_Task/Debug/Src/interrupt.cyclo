@@ -1,0 +1,4 @@
+/Users/oscareverett/Documents/GitHub/MTRX2700-2025/stm32f303-definitions/Core/Inc/core_cm4.h:1688:22:__NVIC_EnableIRQ	2
+/Users/oscareverett/Documents/GitHub/MTRX2700-2025/stm32f303-definitions/Core/Inc/core_cm4.h:1816:22:__NVIC_SetPriority	2
+../Src/interrupt.c:15:6:USART1_EXTI25_IRQHandler	7
+../Src/interrupt.c:46:6:enable_timers	1

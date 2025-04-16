@@ -1,0 +1,6 @@
+/Users/oscareverett/Documents/GitHub/MTRX2700-2025/stm32f303-definitions/Core/Inc/core_cm4.h:1688:22:__NVIC_EnableIRQ	2
+/Users/oscareverett/Documents/GitHub/MTRX2700-2025/stm32f303-definitions/Core/Inc/core_cm4.h:1816:22:__NVIC_SetPriority	2
+../Src/serial.c:40:6:SerialInitialise	6
+../Src/serial.c:98:6:enable_clocks	1
+../Src/serial.c:102:6:initialise_board	1
+../Src/serial.c:108:6:enable_interrupt	1
