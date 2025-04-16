@@ -1,5 +1,0 @@
-../Src/chase_led.c:11:6:TIM2_IRQHandler	3
-../Src/chase_led.c:29:6:led_chase_direction	3
-../Src/chase_led.c:41:6:chase_led_c	2
-../Src/chase_led.c:51:6:chase_led_a	2
-../Src/chase_led.c:61:6:delay_set	1
