@@ -1,4 +1,0 @@
-../Src/LED_setup.c:10:6:TIM2_IRQHandler	2
-../Src/LED_setup.c:22:6:led_chase_direction	3
-../Src/LED_setup.c:35:6:chase_led_c	2
-../Src/LED_setup.c:45:6:chase_led_a	1

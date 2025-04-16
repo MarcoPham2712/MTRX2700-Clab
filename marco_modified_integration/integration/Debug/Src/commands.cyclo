@@ -1,5 +1,0 @@
-../Src/commands.c:14:6:finished_transmission	10
-../Src/commands.c:34:6:led_command	1
-../Src/commands.c:41:6:serial_command	1
-../Src/commands.c:52:6:oneshot_command	1
-../Src/commands.c:65:6:timer_command	1
