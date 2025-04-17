@@ -51,11 +51,11 @@ A user sends commands over **serial**, and the board executes the appropriate ac
 ### Modules:
 | Module           | Description                                                                         |
 |------------------|-------------------------------------------------------------------------------------|
-| `digital_io`     | Encapsulated LED/button control with header-only access and callback support       |
-| `serial_comm`    | Interrupt-based UART receiver with buffer and callback on message complete         |
-| `timer_module`   | Timer interface with both periodic and one-shot events using TIM2                  |
-| `command_parser` | Parses and dispatches commands based on serial input format                        |
-| `main.c`         | Orchestrates modules and demonstrates integration                                  |
+| `LED_setup`     | Encapsulated LED control with header-only access and callback support       |
+| `interrupt`    | Interrupt-based UART receiver with buffer and callback on message complete         |
+| `commands`   | Parsing logic and functions to call desired action                  |
+| `serial` | Sets up serial ports and peripherals                        |
+| `main.c`         | Integrates all modules to complete desired task                                  |
 
 ---
 
