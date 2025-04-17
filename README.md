@@ -80,11 +80,11 @@ A user sends commands over **serial**, and the board executes the appropriate ac
 | Module         | Test Description                                                  | Method                                               | Expected Outcome                                   | Status |
 |----------------|-------------------------------------------------------------------|------------------------------------------------------|---------------------------------------------------|--------|
 | Digital I/O    | LED set/get, button callback                                      | Press button and observe LED state toggling         | Callback fires and LED state changes              | ✅     |
-| Serial Comm    | Receive until terminator, echo string                             | Send string via serial and observe echo             | Full string echoed back                           | ✅     |
+| Serial Comm    | Receive until terminator, transmit string                             | Send string via serial and observe transmit             | Full string echoed back                           | ✅     |
 | One-Shot Timer | Trigger single event after delay                                  | Observe one-time action after command               | Action occurs after delay once                    | ✅     |
-| Periodic Timer | Repeatedly trigger event at defined interval                      | Observe repeating LED toggle or print               | Toggling repeats at interval                      | ✅     |
-| Parser         | Parse command structure `"command operand"`                       | Send all 4 command types and check behavior         | Commands parsed and executed correctly            | ✅     |
-| Final Demo     | Complete system test                                              | Use terminal to test all features end-to-end        | Fully integrated functionality                    | ✅     |
+| Periodic Timer | Repeatedly trigger event at defined interval                      | Observe repeating LED toggle              | Toggling repeats at interval                      | ✅     |
+| Parser         | Parse command structure `"command operand"`                       | Send all 4 command types and check behaviour         | Commands parsed and executed correctly            | ✅     |
+| Final Demo     | Complete system test                                              | Use terminal to test all features       | Fully integrated functionality                    | ✅     |
 
 ---
 
